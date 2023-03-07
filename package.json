@@ -17,6 +17,8 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
+    "@headlessui/vue": "^1.7.12",
+    "@heroicons/vue": "^2.0.16",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "^18.14.2",
     "@vitejs/plugin-vue": "^4.0.0",
