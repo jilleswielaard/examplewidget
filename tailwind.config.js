@@ -8,6 +8,10 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Roboto', ...defaultTheme.fontFamily.sans]
+      },
+      colors: {
+        primary: '#2A60C8',
+        inactive: '#98A7B8'
       }
     }
   },
