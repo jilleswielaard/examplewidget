@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-</script>
-
 <template>
   <header>
     <nav>
@@ -11,3 +7,15 @@ import { RouterLink, RouterView } from 'vue-router';
   </header>
   <RouterView />
 </template>
+
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router';
+import genesyscloud from '@/services/genesyscloud';
+import { onMounted } from 'vue';
+import config from '@/config/config';
+
+onMounted(async () => {
+  await genesyscloud.loginImplicitGrant();
+  history.pushState({}, '', config.redirectUri);
+});
+</script>
