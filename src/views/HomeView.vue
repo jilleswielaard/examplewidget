@@ -39,7 +39,11 @@ const getMe = async () => {
 
 const getGroupsFromDataTable = async (rowId: string): Promise<string[]> => {
   console.log('get groups from data table');
-  const response = await genesyscloud.getDataTableRow(config.datatableId, rowId);
+  interface IRow {
+    Groups: string;
+    key: string;
+  }
+  const response = await genesyscloud.getDataTableRow<IRow>(config.datatableId, rowId);
   const groups = response.Groups.split(';');
   return groups;
 };

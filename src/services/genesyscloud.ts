@@ -5,11 +5,6 @@ const usersApi = new platformClient.UsersApi();
 const groupsApi = new platformClient.GroupsApi();
 const architectApi = new platformClient.ArchitectApi();
 
-interface IRow {
-  Groups: string;
-  key: string;
-}
-
 export default {
   async loginImplicitGrant(): Promise<void> {
     const urlParams = new URLSearchParams(window.location.search);
@@ -37,9 +32,9 @@ export default {
     return data.entities;
   },
 
-  async getDataTableRow(datatableId: string, rowId: string): Promise<IRow> {
+  async getDataTableRow<T>(datatableId: string, rowId: string): Promise<T> {
     const opts: platformClient.ArchitectApi.getFlowsDatatableRowOptions = { showbrief: false };
-    const data = (await architectApi.getFlowsDatatableRow(datatableId, rowId, opts)) as unknown as IRow;
+    const data = (await architectApi.getFlowsDatatableRow(datatableId, rowId, opts)) as T;
     return data;
   }
 };
